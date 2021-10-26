@@ -15,7 +15,7 @@ string numOfDays;
 
 
 void finalCol() {
-	cout << "Okay to just to be clear we need to paint " << S << " square meters of area and their are " << Nc << " children within the area and finally it will take " << Nd << " days" << endl;
+	cout << "Okay to just to be clear we need to paint " << S << " square meters of area and their are " << Nc << " children within the area and finally it will take " << Nd << " days" << " an addtion fee for the international painters tax is " << P << " as well as " << W << " for the expected waste " << endl;
 	N = ((P * Nc * S) + W) * (1 + 1 / Nd);
 	cout << "your estmate paint required from the data given is " << N << endl;
 	cout << "from that the number of gallons the price of your paint will be " << N * 83.54  << " Britsh pound sterling" << endl;
