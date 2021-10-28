@@ -25,10 +25,11 @@ void finalCol() {
 
 void numDays() {
 	while (correctDays == false) {
-		cout << "how many days it will take by please enter below " << endl;
-		//cout << "test to see if correctly passed  " << S << endl;
-		//cout << "test to see if correctly passed  " << Nc << endl;
-		cin >> Nd;
+		while ((cout <<  "how many days it will take by please enter below " << endl) && !(std::cin >> Nd)) {
+			std::cout << "That's not a number; ";
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
 		cout << "okay so it will take " << Nd << " days correct? please type either no or No if this incorrect and Yes or yes if this is correct" << endl;
 		cin >> numOfDays;
 		if (numOfDays == "No" || numOfDays == "no") {
@@ -49,9 +50,11 @@ void numDays() {
 
 void childCol() {
 	while (correctChild == false) {
-		cout << "How many children will be near by please enter below " << endl;
-		//cout << "test to see if correctly passed  " << S << endl;
-		cin >> Nc;
+		while ((cout << "How many children will be near by please enter below " << endl) && !(std::cin >> Nc)) {
+			std::cout << "That's not a number; ";
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
 		cout << "right so their are " << Nc << " children near by" << endl;
 		cout << "okay so that's " << Nc << " children correct? please type either no or No if this incorrect and Yes or yes if this is correct" << endl;
 		cin >> numChild;
@@ -75,28 +78,29 @@ void childCol() {
 
 void main() {
 	cout << "Welcome to the paint caluclator" << endl;
-	while ((cout << "please enter the area in which we will need to paint" << endl) && !(std::cin >> S)) {
-		 std::cout << "That's not a number; ";
-		 std::cin.clear();
-		 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	 }
+	while (correctPaint == false) {
+		while ((cout << "please enter the area in which we will need to paint" << endl) && !(std::cin >> S)) {
+			std::cout << "That's not a number; ";
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
 		cout << "okay so that's " << S << " square meters we need to paint correct? please type either No or no if this incorrect and Yes or yes if this is correct" << endl;
 		cin >> userPaint;
 		if (userPaint == "No" || userPaint == "no") {
-			main();
-		 }
-			else if (userPaint == "Yes" || userPaint == "yes" ) {
+			correctPaint = false;
+		}
+		else if (userPaint == "Yes" || userPaint == "yes") {
 			correctPaint = true;
 			childCol();
 		}
-		 else {
+		else {
 			cout << "please enter a valid responce" << endl;
 			correctPaint = false;
 			main();
 
 		};
 	}
-	 
+}
 
 		
 
