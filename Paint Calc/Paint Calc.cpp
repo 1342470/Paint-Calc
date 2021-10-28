@@ -75,13 +75,15 @@ void childCol() {
 
 void main() {
 	cout << "Welcome to the paint caluclator" << endl;
-	 while (correctPaint == false){
-		cout << "please enter the area in which we will need to paint" << endl;
-		cin >> S;
+	while ((cout << "please enter the area in which we will need to paint" << endl) && !(std::cin >> S)) {
+		 std::cout << "That's not a number; ";
+		 std::cin.clear();
+		 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	 }
 		cout << "okay so that's " << S << " square meters we need to paint correct? please type either No or no if this incorrect and Yes or yes if this is correct" << endl;
 		cin >> userPaint;
 		if (userPaint == "No" || userPaint == "no") {
-			 correctPaint = false;
+			main();
 		 }
 			else if (userPaint == "Yes" || userPaint == "yes" ) {
 			correctPaint = true;
@@ -90,11 +92,12 @@ void main() {
 		 else {
 			cout << "please enter a valid responce" << endl;
 			correctPaint = false;
+			main();
 
 		};
 	}
 	 
-}
+
 		
 
 
